@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gustavolimadesousa/cse-341-final-project/issues"
   },
-  "homepage": "https://github.com/gustavolimadesousa/cse-341-final-project#readme"
+  "homepage": "https://github.com/gustavolimadesousa/cse-341-final-project#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
