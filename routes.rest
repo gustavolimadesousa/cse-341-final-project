@@ -1,0 +1,41 @@
+// LOCALHOST
+### Get all products
+GET http://localhost:3000/products
+
+### Get a product by ID
+GET http://localhost:3000/products/644c1c1a1f1a1f1a1f1a1f01
+
+### Create a new product
+POST http://localhost:3000/products 
+Content-Type: application/json
+{
+  "name": "TV",
+  "category": "Electronics",
+  "price": 599.99,
+  "inStock": true,
+  "ratings": 4.5,
+  "tags": [
+    "audio",
+    "video",
+    "4K"
+  ]
+}
+
+### Update a product by ID   
+PUT http://localhost:3000/products/644c1c1a1f1a1f1a1f1a1f01
+Content-Type: application/json
+
+{
+  "name": "Earbuds",
+  "category": "Electronics",  "price": 99.99,
+  "inStock": true,
+  "ratings": 4.5,
+  "tags": [
+      "audio",
+      "wireless",
+      "bluetooth"
+    ]
+}
+
+### Delete a product by ID
+DELETE http://localhost:3000/api/products/1   
