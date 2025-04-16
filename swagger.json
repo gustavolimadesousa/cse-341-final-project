@@ -1,0 +1,262 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API Documentation",
+    "description": "API documentation for the project",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Hello World"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/products/": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Retrieve all products",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Create a new product",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductWithoutId"
+            },
+            "description": "The product data to create"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Product created successfully",
+            "examples": {
+              "application/json": {
+                "_id": "67fedec4d4f26ef0c29d5bcc",
+                "name": "TV",
+                "category": "Electronics",
+                "price": 299.99,
+                "inStock": true,
+                "ratings": 4.3,
+                "tags": [
+                  "audio",
+                  "wireless",
+                  "bluetooth"
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Retrieve a single product by its ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The ID of the product to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product retrieved successfully"
+          },
+          "404": {
+            "description": "Product not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Update a product by its ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The ID of the product to update"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductWithoutId"
+            },
+            "description": "The product data to update"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Product updated successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Product not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Delete a product by its ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The ID of the product to delete"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Product deleted successfully"
+          },
+          "404": {
+            "description": "Product not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Product": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "description": "The unique identifier for the product"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the product"
+        },
+        "category": {
+          "type": "string",
+          "description": "The category of the product"
+        },
+        "price": {
+          "type": "number",
+          "description": "The price of the product"
+        },
+        "inStock": {
+          "type": "boolean",
+          "description": "Whether the product is in stock"
+        },
+        "ratings": {
+          "type": "number",
+          "description": "The average rating of the product"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Tags associated with the product"
+        }
+      },
+      "required": ["name", "price", "category", "inStock"]
+    },
+    "ProductWithoutId": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the product"
+        },
+        "category": {
+          "type": "string",
+          "description": "The category of the product"
+        },
+        "price": {
+          "type": "number",
+          "description": "The price of the product"
+        },
+        "inStock": {
+          "type": "boolean",
+          "description": "Whether the product is in stock"
+        },
+        "ratings": {
+          "type": "number",
+          "description": "The average rating of the product"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Tags associated with the product"
+        }
+      },
+      "required": ["name", "price", "category", "inStock"]
+    }
+  }
+}
