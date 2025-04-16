@@ -5,9 +5,10 @@
     "description": "API documentation for the project",
     "version": "1.0.0"
   },
-  "host": "cse-341-final-project-yf51.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
+    "http",
     "https"
   ],
   "paths": {
@@ -24,13 +25,22 @@
         }
       }
     },
-    
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/products/": {
       "get": {
         "tags": [
           "Products"
         ],
-        "description": "Retrieve all products",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -44,42 +54,36 @@
         "tags": [
           "Products"
         ],
-        "description": "Create a new product",
+        "description": "",
         "parameters": [
           {
             "name": "body",
             "in": "body",
-            "required": true,
             "schema": {
-              "$ref": "#/definitions/ProductWithoutId"
-            },
-            "description": "The product data to create"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Product created successfully",
-            "examples": {
-              "application/json": {
-                "_id": "67fedec4d4f26ef0c29d5bcc",
-                "name": "TV",
-                "category": "Electronics",
-                "price": 299.99,
-                "inStock": true,
-                "ratings": 4.3,
-                "tags": [
-                  "audio",
-                  "wireless",
-                  "bluetooth"
-                ]
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": 0
+                },
+                "description": {
+                  "example": "any"
+                }
               }
             }
-          },
-          "400": {
-            "description": "Invalid input"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Created Successfully"
           },
           "500": {
-            "description": "Internal server error"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -89,7 +93,7 @@
         "tags": [
           "Products"
         ],
-        "description": "Retrieve a single product by its ID",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -98,16 +102,12 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "The ID of the product to retrieve"
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "Product retrieved successfully"
-          },
-          "404": {
-            "description": "Product not found"
+            "description": "OK"
           }
         }
       },
@@ -115,37 +115,39 @@
         "tags": [
           "Products"
         ],
-        "description": "Update a product by its ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "The ID of the product to update"
+            "type": "string"
           },
           {
             "name": "body",
             "in": "body",
-            "required": true,
             "schema": {
-              "$ref": "#/definitions/ProductWithoutId"
-            },
-            "description": "The product data to update"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": 0
+                },
+                "description": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "204": {
-            "description": "Product updated successfully"
-          },
-          "400": {
-            "description": "Invalid input"
-          },
-          "404": {
-            "description": "Product not found"
+            "description": "Updated Successfully"
           },
           "500": {
-            "description": "Internal server error"
+            "description": "Internal Server Error"
           }
         }
       },
@@ -153,100 +155,172 @@
         "tags": [
           "Products"
         ],
-        "description": "Delete a product by its ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "The ID of the product to delete"
+            "type": "string"
           }
         ],
         "responses": {
           "204": {
-            "description": "Product deleted successfully"
-          },
-          "404": {
-            "description": "Product not found"
+            "description": "Deleted Sucessfully"
           },
           "500": {
-            "description": "Internal server error"
+            "description": "Internal Server Error"
           }
         }
       }
-    }
-  },
-  "definitions": {
-    "Product": {
-      "type": "object",
-      "properties": {
-        "_id": {
-          "type": "string",
-          "description": "The unique identifier for the product"
-        },
-        "name": {
-          "type": "string",
-          "description": "The name of the product"
-        },
-        "category": {
-          "type": "string",
-          "description": "The category of the product"
-        },
-        "price": {
-          "type": "number",
-          "description": "The price of the product"
-        },
-        "inStock": {
-          "type": "boolean",
-          "description": "Whether the product is in stock"
-        },
-        "ratings": {
-          "type": "number",
-          "description": "The average rating of the product"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Tags associated with the product"
-        }
-      },
-      "required": ["name", "price", "category", "inStock"]
     },
-    "ProductWithoutId": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "The name of the product"
-        },
-        "category": {
-          "type": "string",
-          "description": "The category of the product"
-        },
-        "price": {
-          "type": "number",
-          "description": "The price of the product"
-        },
-        "inStock": {
-          "type": "boolean",
-          "description": "Whether the product is in stock"
-        },
-        "ratings": {
-          "type": "number",
-          "description": "The average rating of the product"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Tags associated with the product"
+    "/orders/": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
         }
       },
-      "required": ["name", "price", "category", "inStock"]
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "customerName": {
+                  "example": "any"
+                },
+                "items": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Created Successfully"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Orders"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "customerName": {
+                  "example": "any"
+                },
+                "items": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Updated Successfully"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Orders"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted Sucessfully"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   }
 }
