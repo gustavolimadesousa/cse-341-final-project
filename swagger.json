@@ -5,18 +5,13 @@
     "description": "API documentation for the project",
     "version": "1.0.0"
   },
-  "host": "cse-341-final-project-yf51.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
-  "schemes": [
-    "http",
-    "https"
-  ],
+  "schemes": ["http", "https"],
   "paths": {
     "/": {
       "get": {
-        "tags": [
-          "Hello World"
-        ],
+        "tags": ["Hello World"],
         "description": "",
         "responses": {
           "200": {
@@ -37,13 +32,9 @@
     },
     "/products/": {
       "get": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -51,9 +42,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "description": "",
         "parameters": [
           {
@@ -62,41 +51,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "price": {
-                  "example": 0
-                },
-                "description": {
-                  "example": "any"
-                }
+                "name": { "example": "any" },
+                "price": { "example": 0 },
+                "description": { "example": "any" }
               }
             }
           }
         ],
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
-          "204": {
-            "description": "Created Successfully"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": { "description": "Created Successfully" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     },
     "/products/{id}": {
       "get": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -106,15 +79,11 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          }
+          "200": { "description": "OK" }
         }
       },
       "put": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "description": "",
         "parameters": [
           {
@@ -129,32 +98,20 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "price": {
-                  "example": 0
-                },
-                "description": {
-                  "example": "any"
-                }
+                "name": { "example": "any" },
+                "price": { "example": 0 },
+                "description": { "example": "any" }
               }
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "Updated Successfully"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": { "description": "Updated Successfully" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "delete": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "description": "",
         "parameters": [
           {
@@ -165,34 +122,22 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Deleted Sucessfully"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": { "description": "Deleted Sucessfully" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     },
     "/orders/": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
-          "200": {
-            "description": "OK"
-          }
+          "200": { "description": "OK" }
         }
       },
       "post": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "description": "",
         "parameters": [
           {
@@ -201,41 +146,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "customerName": {
-                  "example": "any"
-                },
-                "items": {
-                  "example": "any"
-                },
-                "status": {
-                  "example": "any"
-                }
+                "customerName": { "example": "any" },
+                "items": { "example": "any" },
+                "status": { "example": "any" }
               }
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "Created Successfully"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": { "description": "Created Successfully" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     },
     "/orders/{id}": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -245,18 +174,12 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "200": { "description": "OK" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "description": "",
         "parameters": [
           {
@@ -271,35 +194,21 @@
             "schema": {
               "type": "object",
               "properties": {
-                "customerName": {
-                  "example": "any"
-                },
-                "items": {
-                  "example": "any"
-                },
-                "status": {
-                  "example": "any"
-                }
+                "customerName": { "example": "any" },
+                "items": { "example": "any" },
+                "status": { "example": "any" }
               }
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "Updated Successfully"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": { "description": "Updated Successfully" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
         }
       },
       "delete": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "description": "",
         "parameters": [
           {
@@ -310,15 +219,203 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Deleted Sucessfully"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "204": { "description": "Deleted Sucessfully" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/customers/": {
+      "get": {
+        "tags": ["Customers"],
+        "description": "",
+        "produces": ["application/json"],
+        "responses": {
+          "200": { "description": "OK" }
+        }
+      },
+      "post": {
+        "tags": ["Customers"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "example": "John Doe" },
+                "email": { "example": "john@example.com" },
+                "phone": { "example": "123-456-7890" }
+              }
+            }
           }
+        ],
+        "responses": {
+          "204": { "description": "Created Successfully" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/customers/{id}": {
+      "get": {
+        "tags": ["Customers"],
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "put": {
+        "tags": ["Customers"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "example": "John Doe" },
+                "email": { "example": "john@example.com" },
+                "phone": { "example": "123-456-7890" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Updated Successfully" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "delete": {
+        "tags": ["Customers"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": { "description": "Deleted Successfully" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/reviews/": {
+      "get": {
+        "tags": ["Reviews"],
+        "description": "Get all reviews",
+        "produces": ["application/json"],
+        "responses": {
+          "200": { "description": "OK" }
+        }
+      },
+      "post": {
+        "tags": ["Reviews"],
+        "description": "Create a new review",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": { "example": "123" },
+                "reviewer": { "example": "Jane Doe" },
+                "rating": { "example": 4 },
+                "comment": { "example": "Great product!" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Created Successfully" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/reviews/{id}": {
+      "get": {
+        "tags": ["Reviews"],
+        "description": "Get a review by ID",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "put": {
+        "tags": ["Reviews"],
+        "description": "Update a review by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": { "example": "123" },
+                "reviewer": { "example": "Jane Doe" },
+                "rating": { "example": 4 },
+                "comment": { "example": "Great product!" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Updated Successfully" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "delete": {
+        "tags": ["Reviews"],
+        "description": "Delete a review by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": { "description": "Deleted Successfully" },
+          "500": { "description": "Internal Server Error" }
         }
       }
     }

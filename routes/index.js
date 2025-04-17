@@ -11,4 +11,9 @@ router.use('/products', require('./products'));
 
 router.use('/orders', require('./orders'));
 
+router.use('/customers', require('./customers'));
+
+router.use('/reviews', require('./reviews'));
+
+
 module.exports = router;
